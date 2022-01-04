@@ -32,13 +32,13 @@ int main(){
 
     FileManager *fileManager = new FileManager();
 
-    ControlProgressBar monitoraggioDownload(risorsa, *fileManager);
+    ControlProgressBar controlProgressBar(risorsa, *fileManager);
 
-    ProgressBar progressBar(*fileManager, &monitoraggioDownload.getWindow(),"file", 0, 0, sf::Color::Magenta);
+    ProgressBar progressBar(*fileManager, &controlProgressBar.getWindow(), "file", 0, 0, sf::Color::Magenta);
 
-    ProgressBar progressBar1(*fileManager, &monitoraggioDownload.getWindow(),"bit", 0, 30, sf::Color::Blue);
+    ProgressBar progressBar1(*fileManager, &controlProgressBar.getWindow(), "bit", 0, 30, sf::Color::Blue);
 
-    return monitoraggioDownload.init();
+    return controlProgressBar.init();
 
 
 
