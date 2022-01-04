@@ -5,9 +5,10 @@
 
 #include "gtest/gtest.h"
 #include "../ResourceFile.h"
+#include "vector"
 
 TEST(RisorseTest, Test_Costructor){
-    ResourceFile *r[2];
+    std::vector <ResourceFile *> r(2);
     r[0] = new ResourceFile("Risorsa_01", 4);
     ASSERT_EQ("Risorsa_01", r[0]->getFileName());
     ASSERT_EQ(4, r[0]->getBit());
