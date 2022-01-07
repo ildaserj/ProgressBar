@@ -1,2 +1,2 @@
 add_executable(Doctest_tests_run ResourceFileTest.cpp FileManagerTest.cpp)
-target_link_libraries(Doctest_tests_run DateConverter_lib)
+#target_link_libraries(Doctest_tests_run )

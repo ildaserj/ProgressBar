@@ -1,7 +1,10 @@
 //
 // Created by serja on 04/01/2022.
 //
+#define  DOCTEST_CONFIG_DISABLE
 #include "doctest.h"
+
+
 #include "../FileManager.h"
 #include "../ProgressBar.h"
 

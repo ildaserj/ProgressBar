@@ -1,13 +1,15 @@
 //
 // Created by serja on 04/01/2022.
 //
-
+#define  DOCTEST_CONFIG_DISABLE
 #include "doctest.h"
 
+
 #include "../ResourceFile.h"
+#include "vector"
 
 TEST_CASE("ResourceFile test Costructor"){
-ResourceFile *r[2];
+std::vector <ResourceFile *> r(2);
 r[0] = new ResourceFile("Risorsa_01", 4);
 CHECK("Risorsa_01" == r[0]->getFileName());
 CHECK(4 ==  r[0]->getBit());
