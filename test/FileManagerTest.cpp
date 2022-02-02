@@ -6,6 +6,7 @@
 #include "../FileManager.h"
 #include "../ProgressBar.h"
 
+
 TEST(FileMAnagerTest, Costructor){
     FileManager f;
     ASSERT_EQ(0, f.getFileCaricati());

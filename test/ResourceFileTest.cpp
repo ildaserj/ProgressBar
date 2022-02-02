@@ -16,6 +16,6 @@ TEST(RisorseTest, Test_Costructor){
     ASSERT_EQ("Risorsa_02", r[1]->getFileName());
     ASSERT_EQ(8 , r[1]->getBit());
     r[2] = new ResourceFile("Risorsa_03", 16);
-    ASSERT_EQ("Risorsa_03", r[1]->getFileName());
+    ASSERT_EQ("Risorsa_03", r[2]->getFileName());
     ASSERT_EQ(16 , r[2]->getBit());
 }

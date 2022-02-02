@@ -53,7 +53,7 @@
                 std::cout<<"notify "<< i <<std::endl;
                 notify();
 
-                sf::sleep(sf::seconds(1));
+                //sf::sleep(sf::seconds(1));
 
         }
 

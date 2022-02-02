@@ -7,7 +7,7 @@ include_directories(lib/googletest-main/googletest/include)
 
 set(SOURCE_FILES ResourceFileTest.cpp FileManagerTest.cpp)
 add_executable(RunAllTest ${SOURCE_FILES})
-target_link_libraries(RunAllTest gtest gtest_main)
+target_link_libraries(RunAllTest gtest gtest_main core)
 #target_link_libraries(RunAllTest ${GTEST_BOTH_LIBRARIES} )
 
 #core stdc++fs

@@ -2,11 +2,14 @@ cmake_minimum_required(VERSION 3.19)
 project(esempio)
 
 set(CMAKE_CXX_STANDARD 20)
-
-add_executable(esempio main.cpp ResourceFile.cpp ResourceFile.h Observer.h Subject.h FileManager.cpp FileManager.h ControlProgressBar.cpp ControlProgressBar.h ProgressBar.cpp ProgressBar.h )
+set(SOURCE-FILES main.cpp ResourceFile.cpp ResourceFile.h Observer.h Subject.h FileManager.cpp FileManager.h ControlProgressBar.cpp ControlProgressBar.h ProgressBar.cpp ProgressBar.h)
+add_executable(esempio ${SOURCE-FILES} )
+add_library(core ${SOURCE-FILES})
 
 include_directories(headers /usr/include c:/SFML/include)
 add_subdirectory(test)
+
+target_link_libraries(esempio core)
 
 set(SFML_ROOT c:/SFML)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
