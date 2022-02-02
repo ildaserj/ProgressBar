@@ -7,7 +7,8 @@ add_executable(esempio ${SOURCE-FILES} )
 add_library(core ${SOURCE-FILES})
 
 include_directories(headers /usr/include c:/SFML/include)
-add_subdirectory(test)
+add_subdirectory(GoogleTest)
+#add_subdirectory(Doctest)
 
 target_link_libraries(esempio core)
 
