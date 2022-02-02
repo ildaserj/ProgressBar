@@ -3,10 +3,14 @@ project(esempio)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(esempio main.cpp ResourceFile.cpp ResourceFile.h Observer.h Subject.h FileManager.cpp FileManager.h ControlProgressBar.cpp ControlProgressBar.h ProgressBar.cpp ProgressBar.h)
+set(SOURCE_FILES main.cpp ResourceFile.cpp ResourceFile.h Observer.h Subject.h FileManager.cpp FileManager.h ControlProgressBar.cpp ControlProgressBar.h ProgressBar.cpp ProgressBar.h)
+add_executable(esempio ${SOURCE_FILES})
+add_library(core ${SOURCE_FILES})
 
 include_directories(headers /usr/include c:/SFML/include)
 add_subdirectory(Doctest)
+target_link_libraries(esempio core)
+
 
 set(SFML_ROOT c:/SFML)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
