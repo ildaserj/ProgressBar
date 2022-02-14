@@ -1,4 +1,3 @@
-
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "ResourceFile.h"
@@ -42,54 +41,3 @@ int main(){
 
 
 }
-
-/*
-int main() {
-
-    sf::Vector2i screen(800, 600);
-    sf::RenderWindow window(sf::VideoMode(screen.x, screen.y),"Progressbar");
-
-    //sf::CircleShape shape(100.f);
-    //shape.setFillColor(sf::Color::Green);
-    int hp = 20;
-    sf:: RectangleShape progressbar;
-
-    progressbar.setFillColor(sf::Color::Blue);
-    //std::cout << "blue" << std::endl;
-    progressbar.setOutlineThickness(2);
-    progressbar.setOutlineColor(sf::Color::Red);
-    //std::cout << "red" << std::endl;
-
-    progressbar.setPosition(200,50);
-
-    while (window.isOpen()) {
-        sf::Event event;
-        std::cout<< "pigia";
-        while (window.pollEvent(event)) {
-            switch (event.type) {
-                std::cout<<"closed"<<std::endl;
-            case sf::Event::Closed :
-                window.close();
-                break;
-              case sf::Event::KeyReleased:
-                  std::cout<<"Entera"<<std::endl;
-                if (event.key.code == sf::Keyboard::A) {
-                    hp -= 1;
-                    std::cout << hp << std::endl;
-                }
-                if (hp <= 0) {
-                window.close();
-                }
-            }
-        }
-
-        progressbar.setSize(sf::Vector2f(hp * 20, 20));
-        window.draw(progressbar);
-        //window.draw(shape);
-        window.display();
-        window.clear();
-    }
-    return 0;
-}
-
-*/

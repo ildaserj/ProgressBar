@@ -1,7 +1,3 @@
-//
-// Created by serja on 09/12/2021.
-//
-
 #ifndef ESEMPIO_SUBJECT_H
 #define ESEMPIO_SUBJECT_H
 

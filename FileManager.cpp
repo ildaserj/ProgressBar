@@ -1,10 +1,4 @@
-//
-// Created by serja on 09/12/2021.
-//
-
 #include "FileManager.h"
-
-#include <utility>
 #include "SFML/Graphics.hpp"
 
 
@@ -52,10 +46,9 @@
             std::cout<<"notify "<< i <<std::endl;
             notify();
 
-//            sf::sleep(sf::seconds(1));
+            sf::sleep(sf::seconds(1));
 
         }
-
     }
 
      int FileManager::getByteCaricati()  {
@@ -72,7 +65,7 @@
     int FileManager::getFileTotali() {
         return fileTot;
     }
-//////
+
     bool FileManager::tCaricato() {
         bool caricato = false;
         for(int i =0 ; i < files.size(); i++){
