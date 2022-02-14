@@ -3,10 +3,12 @@
 //
 
 #include "FileManager.h"
+
+#include <utility>
 #include "SFML/Graphics.hpp"
 
 
-    FileManager::FileManager(): bitCaricati(0), fileCaricati(0), bitTotali(0) {}
+    FileManager::FileManager(std::vector<ResourceFile *> r): byteCaricati(0), fileCaricati(0), byteTotali(0), r(r) {}
 
     FileManager:: ~FileManager() {}
 
@@ -29,45 +31,42 @@
 
 
 
-    void FileManager::downloadFiles(std::vector<ResourceFile *> r) {
+    void FileManager::downloadFiles() {
 
-    ///calcolo bit totali
+    ///calcolo byte totali
         int totBit = 0;
         fileTot = r.size();
         for(int i = 0 ; i < r.size(); i++ ){
-            totBit +=r[i]->getBit();
+            totBit += r[i]->getByte();
         }
-        bitTotali=totBit;
+        byteTotali=totBit;
     ///caricamento risource file
         for(int i = 0; i < r.size(); i++) {
-        std::cout << "Download file: "<< r[i]->getFileName() << std::endl;
+            std::cout << "Download file: "<< r[i]->getFileName() << std::endl;
+            files.push_back(r[i]);
+            files[i]->setFCaricato();
+            byteAttuale = files[i]->getByte();
+            fileCaricati++;
 
-                files.push_back(r[i]);
-                files[i]->setFCaricato();
-                bitAttuale = files[i]->getBit();
-                fileCaricati++;
+            byteCaricati += r[i]->getByte();
+            std::cout<<"notify "<< i <<std::endl;
+            notify();
 
-                bitCaricati += r[i]->getBit();
-                //percentualeCaricamento = bitCaricati;
-                //filePercentuale = (fileCaricati * 100) / files.size();
-                std::cout<<"notify "<< i <<std::endl;
-                notify();
-
-                //sf::sleep(sf::seconds(1));
+//            sf::sleep(sf::seconds(1));
 
         }
 
     }
 
-     int FileManager::getBitCaricati()  {
-        return bitCaricati;
+     int FileManager::getByteCaricati()  {
+        return byteCaricati;
     }
     int FileManager::getFileCaricati() {
         return  fileCaricati;
     }
 
     int FileManager::getTotBit() {
-        return bitTotali;
+        return byteTotali;
     }
 
     int FileManager::getFileTotali() {
@@ -75,12 +74,16 @@
     }
 //////
     bool FileManager::tCaricato() {
+        bool caricato = false;
         for(int i =0 ; i < files.size(); i++){
-            if (files[i]->getFCaricato() != true){
-                return false;
+            if (files[i]->getFCaricato()){
+                caricato = true;
             }
-            return true;
+            else {
+                caricato = false;
+            }
         }
+    return caricato;
     }
 
     std::list<Observer*> &FileManager::getObserver() {

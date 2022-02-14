@@ -3499,7 +3499,7 @@ class GTEST_API_ MatchMatrix {
     matched_[SpaceIndex(ilhs, irhs)] = b ? 1 : 0;
   }
 
-  // Treating the connectivity matrix as a (LhsSize()*RhsSize())-bit number,
+  // Treating the connectivity matrix as a (LhsSize()*RhsSize())-byte number,
   // adds 1 to that number; returns false if incrementing the graph left it
   // empty.
   bool NextGraph();

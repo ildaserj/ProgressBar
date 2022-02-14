@@ -1,15 +1,11 @@
-//
-// Created by serja on 09/12/2021.
-//
 
 #include "ProgressBar.h"
-//#include "SFML/Graphics.hpp"
-
 
 
 ProgressBar::ProgressBar(FileManager &fileManager_, sf::RenderWindow *w, std::string type,
                          unsigned int x, unsigned int y, sf::Color color) :
-                         fileManager(fileManager_),type(std::move(type)), window(w), maxWidth(300), maxHeight(20) {//, monitoraggioDownload(new ControlProgressBar(fileManager)){
+                         fileManager(fileManager_),type(std::move(type)), window(w), maxWidth(300), maxHeight(20) {
+
     fileManager.attach(this);
     rectangleShape.setPosition(sf::Vector2f(x, y));
     rectangleShape.setFillColor(color);
@@ -34,8 +30,8 @@ ProgressBar::ProgressBar(FileManager &fileManager_, sf::RenderWindow *w, std::st
 
        }
 
-       if (type == "bit") {
-           std::cout<<"update bit"<<std::endl;
+       if (type == "byte") {
+           std::cout<<"update byte"<<std::endl;
            rectangleShape.setPosition(sf::Vector2f(0, 30));
            rectangleShape.setSize(sf::Vector2f(300,40));//40
            rectangleShape.setFillColor(sf::Color::Black);
@@ -43,8 +39,8 @@ ProgressBar::ProgressBar(FileManager &fileManager_, sf::RenderWindow *w, std::st
            window->draw(rectangleShape);
 
            rectangleShape.setFillColor(sf::Color::Blue);
-           rectangleShape.setSize(sf::Vector2f((maxWidth * fileManager.getBitCaricati())/ fileManager.getTotBit(), maxHeight));
-           std::cout<<(maxWidth * fileManager.getBitCaricati())/ fileManager.getTotBit()<<" "<< maxHeight <<std::endl;
+           rectangleShape.setSize(sf::Vector2f((maxWidth * fileManager.getByteCaricati()) / fileManager.getTotBit(), maxHeight));
+           std::cout << (maxWidth * fileManager.getByteCaricati()) / fileManager.getTotBit() << " " << maxHeight << std::endl;
 
 
        }

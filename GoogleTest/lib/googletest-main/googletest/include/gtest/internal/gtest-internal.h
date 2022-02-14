@@ -226,12 +226,12 @@ GTEST_API_ std::string GetBoolAssertionFailureMessage(
 //
 // Format of IEEE floating-point:
 //
-//   The most-significant bit being the leftmost, an IEEE
+//   The most-significant byte being the leftmost, an IEEE
 //   floating-point looks like
 //
 //     sign_bit exponent_bits fraction_bits
 //
-//   Here, sign_bit is a single bit that designates the sign of the
+//   Here, sign_bit is a single byte that designates the sign of the
 //   number.
 //
 //   For float, there are 8 exponent bits and 23 fraction bits.
@@ -263,7 +263,7 @@ class FloatingPoint {
   // # of exponent bits in a number.
   static const size_t kExponentBitCount = kBitCount - 1 - kFractionBitCount;
 
-  // The mask for the sign bit.
+  // The mask for the sign byte.
   static const Bits kSignBitMask = static_cast<Bits>(1) << (kBitCount - 1);
 
   // The mask for the fraction bits.
@@ -280,7 +280,7 @@ class FloatingPoint {
   //
   // The maximum error of a single floating-point operation is 0.5
   // units in the last place.  On Intel CPU's, all floating-point
-  // calculations are done with 80-bit precision, while double has 64
+  // calculations are done with 80-byte precision, while double has 64
   // bits.  Therefore, 4 should be enough for ordinary use.
   //
   // See the following article for more details on ULP:
@@ -297,7 +297,7 @@ class FloatingPoint {
 
   // Static methods
 
-  // Reinterprets a bit pattern as a floating-point number.
+  // Reinterprets a byte pattern as a floating-point number.
   //
   // This function is needed to test the AlmostEquals() method.
   static RawType ReinterpretBits(const Bits bits) {
@@ -325,7 +325,7 @@ class FloatingPoint {
   // Returns the fraction bits of this number.
   Bits fraction_bits() const { return kFractionBitMask & u_.bits_; }
 
-  // Returns the sign bit of this number.
+  // Returns the sign byte of this number.
   Bits sign_bit() const { return kSignBitMask & u_.bits_; }
 
   // Returns true if and only if this is NAN (not a number).

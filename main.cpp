@@ -1,13 +1,10 @@
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <vector>
 #include "ResourceFile.h"
 #include "FileManager.h"
 #include "ControlProgressBar.h"
 #include "ProgressBar.h"
-
-
 
 int main(){
 
@@ -30,13 +27,13 @@ int main(){
     risorsa[14] = new ResourceFile("Risorsa_15", 8);
 
 
-    FileManager *fileManager = new FileManager();
+    FileManager *fileManager = new FileManager(risorsa);
 
-    ControlProgressBar controlProgressBar(risorsa, *fileManager);
+    ControlProgressBar controlProgressBar(*fileManager);
 
     ProgressBar progressBar(*fileManager, &controlProgressBar.getWindow(), "file", 0, 0, sf::Color::Magenta);
 
-    ProgressBar progressBar1(*fileManager, &controlProgressBar.getWindow(), "bit", 0, 30, sf::Color::Blue);
+    ProgressBar progressBar1(*fileManager, &controlProgressBar.getWindow(), "byte", 0, 30, sf::Color::Blue);
 
     return controlProgressBar.init();
 

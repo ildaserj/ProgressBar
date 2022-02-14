@@ -310,7 +310,7 @@ In general, if you find yourself needing to mock a static function, it's a sign
 that your modules are too tightly coupled (and less flexible, less reusable,
 less testable, etc). You are probably better off defining a small interface and
 call the function through that interface, which then can be easily mocked. It's
-a bit of work initially, but usually pays for itself quickly.
+a byte of work initially, but usually pays for itself quickly.
 
 This Google Testing Blog
 [post](https://testing.googleblog.com/2008/06/defeat-static-cling.html) says it

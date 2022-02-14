@@ -1354,7 +1354,7 @@ function and you may want to validate it. Since most STL containers support the
 Sometimes, though, you may want to be more flexible (for example, the first
 element must be an exact match, but the second element can be any positive
 number, and so on). Also, containers used in tests often have a small number of
-elements, and having to define the expected container out-of-line is a bit of a
+elements, and having to define the expected container out-of-line is a byte of a
 hassle.
 
 You can use the `ElementsAre()` or `UnorderedElementsAre()` matcher in such

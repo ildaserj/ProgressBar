@@ -1358,7 +1358,7 @@ function and you may want to validate it. Since most STL containers support the
 Sometimes, though, you may want to be more flexible (for example, the first
 element must be an exact match, but the second element can be any positive
 number, and so on). Also, containers used in tests often have a small number of
-elements, and having to define the expected container out-of-line is a bit of a
+elements, and having to define the expected container out-of-line is a byte of a
 hassle.
 
 You can use the `ElementsAre()` or `UnorderedElementsAre()` matcher in such
@@ -3658,7 +3658,7 @@ type of arguments. If you want a *polymorphic* matcher that works with arguments
 of several types (for instance, `Eq(x)` can be used to match a *`value`* as long
 as `value == x` compiles -- *`value`* and `x` don't have to share the same
 type), you can learn the trick from `testing/base/public/gmock-matchers.h` but
-it's a bit involved.
+it's a byte involved.
 
 Fortunately, most of the time you can define a polymorphic matcher easily with
 the help of `MakePolymorphicMatcher()`. Here's how you can define `NotNull()` as

@@ -378,7 +378,7 @@ uint32_t Random::Generate(uint32_t range) {
       << "Generation of a number in [0, " << range << ") was requested, "
       << "but this can only generate numbers in [0, " << kMaxRange << ").";
 
-  // Converting via modulus introduces a bit of downward bias, but
+  // Converting via modulus introduces a byte of downward bias, but
   // it's simple, and a linear congruential generator isn't too good
   // to begin with.
   return state_ % range;
@@ -446,7 +446,7 @@ namespace {
 // to creates test cases for it, a synthetic test case is
 // inserted to report ether an error or a log message.
 //
-// This configuration bit will likely be removed at some point.
+// This configuration byte will likely be removed at some point.
 constexpr bool kErrorOnUninstantiatedParameterizedTest = true;
 constexpr bool kErrorOnUninstantiatedTypeParameterizedTest = true;
 
@@ -1936,8 +1936,8 @@ constexpr uint32_t kMaxCodePoint3 = (static_cast<uint32_t>(1) << (4 + 2*6)) - 1;
 // The maximum code-point a four-byte UTF-8 sequence can represent.
 constexpr uint32_t kMaxCodePoint4 = (static_cast<uint32_t>(1) << (3 + 3*6)) - 1;
 
-// Chops off the n lowest bits from a bit pattern.  Returns the n
-// lowest bits.  As a side effect, the original bit pattern will be
+// Chops off the n lowest bits from a byte pattern.  Returns the n
+// lowest bits.  As a side effect, the original byte pattern will be
 // shifted to the right by n bits.
 inline uint32_t ChopLowBits(uint32_t* bits, int n) {
   const uint32_t low_bits = *bits & ((static_cast<uint32_t>(1) << n) - 1);
@@ -1981,7 +1981,7 @@ std::string CodePointToUtf8(uint32_t code_point) {
 
 // The following two functions only make sense if the system
 // uses UTF-16 for wide string encoding. All supported systems
-// with 16 bit wchar_t (Windows, Cygwin) do use UTF-16.
+// with 16 byte wchar_t (Windows, Cygwin) do use UTF-16.
 
 // Determines if the arguments constitute UTF-16 surrogate pair
 // and thus should be combined into a single Unicode code point

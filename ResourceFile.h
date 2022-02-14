@@ -10,13 +10,13 @@
 class ResourceFile {
 private:
     std::string fileName;
-    int bit;
+    int byte;
     bool risCaricata;
 
 public:
-    ResourceFile(std::string name, int bit);
-    const std::string getFileName() const;
-    int getBit() const;
+    ResourceFile(std::string name, int byte);
+    const std::string &getFileName() const;
+    int getByte() const;
     bool getFCaricato();
     void setFCaricato();
 

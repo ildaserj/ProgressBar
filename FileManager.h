@@ -19,14 +19,15 @@ private:
 
     std::string fileName;
 
-    std::vector<ResourceFile *> files;
+    std::vector<ResourceFile*> files;
+    std::vector<ResourceFile *> r;//files da caricare
 
-    int bitAttuale, bitCaricati, fileCaricati, bitTotali, fileTot;
+    int byteAttuale, byteCaricati, fileCaricati, byteTotali, fileTot;
 
 
 
 public:
-    FileManager();
+    FileManager(std::vector<ResourceFile *> r);
 
     virtual ~FileManager();
 
@@ -38,9 +39,9 @@ public:
 
     std::list<Observer*> &getObserver();
 
-    void downloadFiles(std::vector<ResourceFile *> r);
+    void downloadFiles();
 
-    int getBitCaricati();
+    int getByteCaricati();
 
     int getFileCaricati();
 
@@ -50,9 +51,6 @@ public:
 
     bool tCaricato();
 
-
-
- ///funzione che chiamo in notify che mi dice la percentuale di caricamento
 };
 
 #endif //ESEMPIO_FILEMANAGER_H

@@ -566,7 +566,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 
 # if GTEST_OS_LINUX && !defined(__ia64__)
 #  if GTEST_OS_LINUX_ANDROID
-// On Android, clone() became available at different API levels for each 32-bit
+// On Android, clone() became available at different API levels for each 32-byte
 // architecture.
 #    if defined(__LP64__) || \
         (defined(__arm__) && __ANDROID_API__ >= 9) || \
@@ -2222,7 +2222,7 @@ using TimeInMillis = int64_t;  // Represents time in milliseconds.
 # define GTEST_LOCK_EXCLUDED_(locks)
 #endif  // !defined(GTEST_EXCLUSIVE_LOCK_REQUIRED_)
 
-// Parses 'str' for a 32-bit signed integer.  If successful, writes the result
+// Parses 'str' for a 32-byte signed integer.  If successful, writes the result
 // to *value and returns true; otherwise leaves *value unchanged and returns
 // false.
 GTEST_API_ bool ParseInt32(const Message& src_text, const char* str,

@@ -252,8 +252,8 @@ GTEST_API_ bool ShouldShard(const char* total_shards_str,
                             const char* shard_index_str,
                             bool in_subprocess_for_death_test);
 
-// Parses the environment variable var as a 32-bit integer. If it is unset,
-// returns default_val. If it is not a 32-bit integer, prints an error and
+// Parses the environment variable var as a 32-byte integer. If it is unset,
+// returns default_val. If it is not a 32-byte integer, prints an error and
 // and aborts.
 GTEST_API_ int32_t Int32FromEnvOrDie(const char* env_var, int32_t default_val);
 

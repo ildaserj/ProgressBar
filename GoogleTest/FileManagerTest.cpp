@@ -1,22 +1,43 @@
-//
-// Created by serja on 27/12/2021.
-//
-
 #include "gtest/gtest.h"
 #include "../FileManager.h"
 #include "../ProgressBar.h"
+#include "../ResourceFile.h"
+#include "vector"
 
 
-TEST(FileMAnagerTest, Costructor){
-    FileManager f;
+
+
+//costructor
+TEST(FileManagerTest, Costructor){
+    std::vector<ResourceFile *> risorsa(0);
+    FileManager f(risorsa);
     ASSERT_EQ(0, f.getFileCaricati());
-    ASSERT_EQ(0, f.getBitCaricati());
+    ASSERT_EQ(0, f.getByteCaricati());
     ASSERT_EQ(0, f.getObserver().size());
+}
+//getter
+TEST(FileMmanagerTest, Getter){
+    std::vector<ResourceFile *> risorsa(7);
+    risorsa[0] = new ResourceFile("Risorsa_01", 4);
+    risorsa[1] = new ResourceFile("Risorsa_02", 8);
+    risorsa[2] = new ResourceFile("Risorsa_03", 16);
+    risorsa[3] = new ResourceFile("Risorsa_04", 4);
+    risorsa[4] = new ResourceFile("Risorsa_05", 4);
+    risorsa[5] = new ResourceFile("Risorsa_06", 16);
+    risorsa[6] = new ResourceFile("Risorsa_07", 8);
+    FileManager f(risorsa);
+    f.downloadFiles();
+    ASSERT_EQ(7, f.getFileCaricati());
+    ASSERT_EQ(60, f.getByteCaricati());
+    ASSERT_TRUE(risorsa[0]->getFCaricato());
+    ASSERT_TRUE(risorsa[2]->getFCaricato());
+    ASSERT_TRUE(risorsa[5]->getFCaricato());
 }
 
 //test attach detach
 TEST(FileManager, Attach){
-    FileManager f;
+    std::vector<ResourceFile *> risorsa(0);
+    FileManager f(risorsa);
     ProgressBar *b1;
     ProgressBar *b2;
     ProgressBar *b3;

@@ -1,6 +1,4 @@
-//
-// Created by serja on 09/12/2021.
-//
+
 
 #ifndef ESEMPIO_PROGRESSBAR_H
 #define ESEMPIO_PROGRESSBAR_H
@@ -19,7 +17,6 @@ public:
 
     virtual void update() override;
 
-    //void setBarra(int percentuale);
 
 
 
@@ -34,4 +31,4 @@ private:
 };
 
 
-#endif //ESEMPIO_PROGRESSBAR_H
+#endif //ESEMPIO_CONTROLPROGRESSBAR_H

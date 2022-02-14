@@ -1297,7 +1297,7 @@ static std::string FlagToEnvVar(const char* flag) {
   return env_var.GetString();
 }
 
-// Parses 'str' for a 32-bit signed integer.  If successful, writes
+// Parses 'str' for a 32-byte signed integer.  If successful, writes
 // the result to *value and returns true; otherwise leaves *value
 // unchanged and returns false.
 bool ParseInt32(const Message& src_text, const char* str, int32_t* value) {
@@ -1310,7 +1310,7 @@ bool ParseInt32(const Message& src_text, const char* str, int32_t* value) {
     // No - an invalid character was encountered.
     Message msg;
     msg << "WARNING: " << src_text
-        << " is expected to be a 32-bit integer, but actually"
+        << " is expected to be a 32-byte integer, but actually"
         << " has value \"" << str << "\".\n";
     printf("%s", msg.GetString().c_str());
     fflush(stdout);
@@ -1327,7 +1327,7 @@ bool ParseInt32(const Message& src_text, const char* str, int32_t* value) {
       ) {
     Message msg;
     msg << "WARNING: " << src_text
-        << " is expected to be a 32-bit integer, but actually"
+        << " is expected to be a 32-byte integer, but actually"
         << " has value " << str << ", which overflows.\n";
     printf("%s", msg.GetString().c_str());
     fflush(stdout);
@@ -1353,9 +1353,9 @@ bool BoolFromGTestEnv(const char* flag, bool default_value) {
 #endif  // defined(GTEST_GET_BOOL_FROM_ENV_)
 }
 
-// Reads and returns a 32-bit integer stored in the environment
+// Reads and returns a 32-byte integer stored in the environment
 // variable corresponding to the given flag; if it isn't set or
-// doesn't represent a valid 32-bit integer, returns default_value.
+// doesn't represent a valid 32-byte integer, returns default_value.
 int32_t Int32FromGTestEnv(const char* flag, int32_t default_value) {
 #if defined(GTEST_GET_INT32_FROM_ENV_)
   return GTEST_GET_INT32_FROM_ENV_(flag, default_value);
