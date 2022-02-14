@@ -1,7 +1,3 @@
-//
-// Created by serja on 09/12/2021.
-//
-
 #ifndef ESEMPIO_RESOURCEFILE_H
 #define ESEMPIO_RESOURCEFILE_H
 
