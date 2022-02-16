@@ -1,7 +1,3 @@
-//
-// Created by serja on 09/12/2021.
-//
-
 #ifndef ESEMPIO_RESOURCEFILE_H
 #define ESEMPIO_RESOURCEFILE_H
 
@@ -15,13 +11,15 @@ private:
 
 public:
     ResourceFile(std::string name, int byte);
+
     const std::string &getFileName() const;
-    int getByte() const;
-    bool getFCaricato();
+
+    const int getByte() const;
+
+    const bool getFCaricato() const;
+
     void setFCaricato();
 
-
 };
-
 
 #endif //ESEMPIO_RESOURCEFILE_H

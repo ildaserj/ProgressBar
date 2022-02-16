@@ -2,16 +2,15 @@
 #include <iostream>
 
 
-
-ControlProgressBar::ControlProgressBar(FileManager &subject, unsigned int widht, unsigned int height ) :
-        window(sf::VideoMode(widht, height), "", sf::Style::Close), subject(subject){
+ControlProgressBar::ControlProgressBar(FileManager &subject, unsigned int widht, unsigned int height) :
+        window(sf::VideoMode(widht, height), "", sf::Style::Close), subject(subject) {
 
 
     auto desktop = sf::VideoMode::getDesktopMode();
-    std::cout<< "X"<<desktop.width /2 - window.getSize().x /2 << std::endl;
-    std::cout<< "Y"<<desktop.height /2 - window.getSize().y /2 << std::endl;
-    window.setPosition(sf::Vector2i(desktop.width /2 - window.getSize().x /2,
-                       desktop.height /2 - window.getSize().y /2));
+    std::cout << "X" << desktop.width / 2 - window.getSize().x / 2 << std::endl;
+    std::cout << "Y" << desktop.height / 2 - window.getSize().y / 2 << std::endl;
+    window.setPosition(sf::Vector2i(desktop.width / 2 - window.getSize().x / 2,
+                                    desktop.height / 2 - window.getSize().y / 2));
 }
 
 int ControlProgressBar::init() {
@@ -20,7 +19,7 @@ int ControlProgressBar::init() {
     window.clear();
     window.display();
 
-    while (window.isOpen()){
+    while (window.isOpen()) {
         sf::Event event;
 
         while (window.pollEvent(event)) {
@@ -39,7 +38,7 @@ int ControlProgressBar::run() {
     window.clear();
     window.setTitle("Progress Bar");
     subject.downloadFiles();
-    if (subject.tCaricato()){
+    if (subject.tCaricato()) {
         window.setTitle("");
 
         window.clear();
@@ -50,6 +49,6 @@ int ControlProgressBar::run() {
 
 ControlProgressBar::~ControlProgressBar() {}
 
-sf::RenderWindow &ControlProgressBar:: getWindow() {
+sf::RenderWindow &ControlProgressBar::getWindow() {
     return window;
 }

@@ -8,16 +8,16 @@
 #include "SFML/Graphics.hpp"
 
 
-
-class ProgressBar : public Observer{
+class ProgressBar : public Observer {
 public:
-    ProgressBar(FileManager &fileManager, sf::RenderWindow *w,std::string type, unsigned int x, unsigned int y, sf::Color color =sf::Color::Magenta);
+    ProgressBar(FileManager &fileManager, sf::RenderWindow *w, std::string type, unsigned int x, unsigned int y,
+                sf::Color color = sf::Color::Magenta);
 
     ~ProgressBar();
 
     virtual void update() override;
 
-
+    const int getNumNotify() const;
 
 
 private:
@@ -27,6 +27,7 @@ private:
     unsigned int maxWidth;
     unsigned int maxHeight;
     std::string type;
+    int numNotify;
 
 };
 

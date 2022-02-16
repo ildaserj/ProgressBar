@@ -13,7 +13,7 @@ private:
 
 
 public:
-    ControlProgressBar(FileManager &subject, unsigned int width = 300, unsigned int lenght = 50 );//40
+    ControlProgressBar(FileManager &subject, unsigned int width = 300, unsigned int lenght = 50);//40
 
     virtual ~ControlProgressBar();
 

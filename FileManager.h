@@ -11,15 +11,14 @@
 class FileManager : public Subject {
 
 private:
-    std::list <Observer *> observers;
+    std::list<Observer *> observers;
 
     std::string fileName;
 
-    std::vector<ResourceFile*> files;
+    std::vector<ResourceFile *> files;
     std::vector<ResourceFile *> r;//files da caricare
 
     int byteAttuale, byteCaricati, fileCaricati, byteTotali, fileTot;
-
 
 
 public:
@@ -31,22 +30,21 @@ public:
 
     void detach(Observer *o) override;
 
-    void notify() override ;
+    void notify() override;
 
-    std::list<Observer*> &getObserver();
+    std::list<Observer *> &getObserver();
 
     void downloadFiles();
 
-    int getByteCaricati();
+    const int getByteCaricati() const;
 
-    int getFileCaricati();
+    const int getFileCaricati() const;
 
-    int getTotBit();
+    const int getTotBit() const;
 
-    int getFileTotali();
+    const int getFileTotali() const;
 
     bool tCaricato();
-
 };
 
 #endif //ESEMPIO_FILEMANAGER_H

@@ -5,8 +5,6 @@
 #include "vector"
 
 
-
-
 //costructor
 TEST(FileManagerTest, Costructor){
     std::vector<ResourceFile *> risorsa(0);
@@ -16,7 +14,7 @@ TEST(FileManagerTest, Costructor){
     ASSERT_EQ(0, f.getObserver().size());
 }
 //getter
-TEST(FileMmanagerTest, Getter){
+TEST(FileManagerTest, Getter){
     std::vector<ResourceFile *> risorsa(7);
     risorsa[0] = new ResourceFile("Risorsa_01", 4);
     risorsa[1] = new ResourceFile("Risorsa_02", 8);
