@@ -50,23 +50,23 @@ void FileManager::downloadFiles() {
     }
 }
 
-const int FileManager::getByteCaricati() const {
+int FileManager::getByteCaricati() const {
     return byteCaricati;
 }
 
-const int FileManager::getFileCaricati() const {
+int FileManager::getFileCaricati() const {
     return fileCaricati;
 }
 
-const int FileManager::getTotBit() const {
+int FileManager::getTotBit() const {
     return byteTotali;
 }
 
-const int FileManager::getFileTotali() const {
+int FileManager::getFileTotali() const {
     return fileTot;
 }
 
-bool FileManager::tCaricato() {
+bool FileManager::tCaricato() const{
     bool caricato = false;
     for (int i = 0; i < files.size(); i++) {
         if (files[i]->getFCaricato()) {
@@ -78,7 +78,7 @@ bool FileManager::tCaricato() {
     return caricato;
 }
 
-std::list<Observer *> &FileManager::getObserver() {
+const std::list<Observer *> &FileManager::getObserver() const{
     return observers;
 }
 

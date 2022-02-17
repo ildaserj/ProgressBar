@@ -14,9 +14,9 @@ public:
 
     const std::string &getFileName() const;
 
-    const int getByte() const;
+    int getByte() const;
 
-    const bool getFCaricato() const;
+    bool getFCaricato() const;
 
     void setFCaricato();
 

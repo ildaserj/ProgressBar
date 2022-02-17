@@ -17,7 +17,7 @@ public:
 
     virtual void update() override;
 
-    const int getNumNotify() const;
+    int getNumNotify() const;
 
 
 private:

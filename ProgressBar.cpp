@@ -48,6 +48,6 @@ void ProgressBar::update() {
     window->display();
 }
 
-const int ProgressBar::getNumNotify() const {
+int ProgressBar::getNumNotify() const {
     return numNotify;
 }

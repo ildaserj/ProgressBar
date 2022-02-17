@@ -10,7 +10,7 @@ class ControlProgressBar {
 private:
     FileManager &subject;
     sf::RenderWindow window;
-
+    std::vector<ResourceFile *> r;
 
 public:
     ControlProgressBar(FileManager &subject, unsigned int width = 300, unsigned int lenght = 50);//40
@@ -23,7 +23,7 @@ public:
 
     sf::RenderWindow &getWindow();
 
-    std::vector<ResourceFile *> r;
+
 };
 
 

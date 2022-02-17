@@ -12,11 +12,11 @@ const std::string &ResourceFile::getFileName() const {
     return fileName;
 }
 
-const int ResourceFile::getByte() const {
+int ResourceFile::getByte() const {
     return byte;
 }
 
-const bool ResourceFile::getFCaricato() const {
+bool ResourceFile::getFCaricato() const {
     return risCaricata;
 }
 

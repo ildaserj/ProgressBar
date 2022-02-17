@@ -32,19 +32,19 @@ public:
 
     void notify() override;
 
-    std::list<Observer *> &getObserver();
+    const std::list<Observer *> &getObserver() const;
 
     void downloadFiles();
 
-    const int getByteCaricati() const;
+    int getByteCaricati() const;
 
-    const int getFileCaricati() const;
+    int getFileCaricati() const;
 
-    const int getTotBit() const;
+    int getTotBit() const;
 
-    const int getFileTotali() const;
+    int getFileTotali() const;
 
-    bool tCaricato();
+    bool tCaricato() const;
 };
 
 #endif //ESEMPIO_FILEMANAGER_H
