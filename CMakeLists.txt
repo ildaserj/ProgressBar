@@ -12,7 +12,7 @@ add_subdirectory(GoogleTest)
 
 #target_link_libraries(esempio core)
 
-set(SFML_ROOT c:/SFML)
+set(SFML_ROOT c:/SFML) #add "SFML_ROOT" + path of the directory where you have the library, in my case in c:/SFML 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 find_package(SFML REQUIRED system window graphics network audio)
 if (SFML_FOUND)
@@ -22,7 +22,7 @@ endif ()
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
-# Copy dlls to build
+# Copy dlls to build 
 if (WIN32)
     file(GLOB BINARY_DEP_DLLS "${SFML_INCLUDE_DIR}/../bin/*.dll")
     file(COPY ${BINARY_DEP_DLLS} DESTINATION ${CMAKE_BINARY_DIR})
